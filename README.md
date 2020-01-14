@@ -5,4 +5,10 @@ TCO-Tool stand for Telco Cloud Operational Tool. it provide quick and modern met
 Requirements:
 * Python version >= 3.X.X
 * PyInquirer Package.
-* Ansibe version >= 2.4.2.0
+* Ansibe version >= 2.4.X.X
+
+
+Reference Link:
+
+PyInquirer: https://pypi.org/project/PyInquirer/
+Ansible Doc: https://docs.ansible.com/
