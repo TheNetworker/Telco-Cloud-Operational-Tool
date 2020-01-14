@@ -40,10 +40,25 @@ questions = [
             },
             Separator('= Nodes Information ='),
             {
-                'name': 'Baremetal List'
+                'name': 'Baremetal Node list'
             },
             {
-                'name': 'Overcloud node list'
+                'name': 'Overcloud Node list'
+            },
+            {
+                'name': 'List of VM\'s per Node'
+            },
+            {
+                'name': 'List of VM\'s with their respective NUMA'
+            },
+            {
+                'name': 'List of VM\'s with their vCPU'
+            },
+            {
+                'name': 'List of VM\'s with their vNIC'
+            },
+            {
+                'name': 'List of VM\'s with their RAMs info'
             }
 
         ],
