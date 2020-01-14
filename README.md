@@ -3,5 +3,6 @@ TCO-Tool stand for Telco Cloud Operational Tool. it provide quick and modern met
 
 
 Requirements:
-* Python3
+* Python version >= 3.X.X
 * PyInquirer Package.
+* Ansibe version >= 2.4.2.0
