@@ -10,5 +10,5 @@ Requirements:
 
 Reference Link:
 
-PyInquirer: https://pypi.org/project/PyInquirer/
-Ansible Doc: https://docs.ansible.com/
+* PyInquirer: https://pypi.org/project/PyInquirer/
+* Ansible Doc: https://docs.ansible.com/
