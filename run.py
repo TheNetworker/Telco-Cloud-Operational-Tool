@@ -2,6 +2,9 @@ from __future__ import print_function, unicode_literals
 from PyInquirer import style_from_dict, Token, prompt, Separator
 from pprint import pprint
 import json
+import sys
+import os
+import re
 import emoji
 
 
@@ -21,72 +24,135 @@ def questionsList():
         {
             'type': 'input',
             'name': 'host',
-            'message': emoji.emojize('Insert ansible device group name  :busts_in_silhouette: :'),
+            'message': emoji.emojize('IP Address (add multiple devices by using comma seperator): '),
 
         },
-        {
-            'type': 'input',
-            'name': 'inventory',
-            'message': emoji.emojize('Inventory file Path  :open_file_folder: ?'),
+        # {
+        #     'type': 'input',
+        #     'name': 'inventory',
+        #     'message': emoji.emojize('Stack Profile (in ) :open_file_folder: ?'),
 
-        },
-        {
-            'type': 'list',
-            'name': 'tasks',
-            'message': 'Choose your Task',
-            'choices': [
-                "System",
-                "Cloud \'OpenStack\'",
-                "Storage",
-                "Network"
-            ]
-        },
+        # },
+        # {
+        #     'type': 'list',
+        #     'name': 'tasks',
+        #     'message': 'Choose your Task',
+        #     'choices': [
+        #         "System",
+        #         "Cloud \'OpenStack\'",
+        #         "Storage",
+        #         "Network"
+        #     ]
+        # },
         {
             'type': 'checkbox',
-            'message': 'Selection:',
-            'name': 'action',
+            'message': 'select item',
+            'name': 'actions',
             'choices': [
-                Separator('= Health Check ='),
+                Separator('<<>><<>> Cloud Menu (OpenStack) <<>><<>>'),
                 {
-                    'name': 'Undercloud'
+                    'name': 'Director Health-check + status'
                 },
                 {
-                    'name': 'Overcloud'
+                    'name': 'Openstack services status'
                 },
                 {
-                    'name': 'Ceph Storage'
+                    'name': 'Ceph Storage status'
                 },
-                Separator('= Collect Logs ='),
+                {
+                    'name': 'Controllers status'
+                },
+                {
+                    'name': 'Check OpenStack Host Aggregate (HA)'
+                },
+                {
+                    'name': 'Computes status'
+                },
+                {
+                    'name': 'VM\'s Status'
+                },
+                {
+                    'name': 'Check for Errors per OpenStack Service'
+                },
+                {
+                    'name': 'Check Baremetal List and status'
+                },
+                {
+                    'name': 'Show Servers List'
+                },
+                {
+                    'name': 'Show Projects List'
+                },
+                {
+                    'name': 'Show Users List'
+                },
+                {
+                    'name': 'Show Networks List'
+                },
+                {
+                    'name': 'Show Volumes List'
+                },
+                {
+                    'name': 'Show Images List'
+                },
+                Separator('<<>><<>> SOSREPORT (RHEL/Centos)<<>><<>>'),
                 {
                     'name': 'sosreport',
                     # 'disabled': 'Administrator Only'
                     # 'checked': True
                 },
-                Separator('= Nodes Information ='),
+                Separator('<<>><<>> Customized Requests <<>><<>>'),
                 {
-                    'name': 'Baremetal Node list'
+                    'name': 'PMR',
+                    'disabled': 'NFVI Team BO Only',
+                    'checked': True
+                },
+                Separator('<<>><<>> OS Menu (RHEL/Centos)<<>><<>>'),
+                {
+                    'name': 'Disk status'
                 },
                 {
-                    'name': 'Overcloud Node list'
+                    'name': 'Memory status'
                 },
                 {
-                    'name': 'List of VM\'s per Node'
+                    'name': 'CPU status'
                 },
                 {
-                    'name': 'List of VM\'s with their respective NUMA'
+                    'name': 'Check Capabilities of OS'
                 },
                 {
-                    'name': 'List of VM\'s with their vCPU'
+                    'name': 'Check for Hardware Errors'
                 },
                 {
-                    'name': 'List of VM\'s with their vNIC'
+                    'name': 'Check Hardware Information'
                 },
                 {
-                    'name': 'List of VM\'s with their RAMs info'
-                }
+                    'name': 'heck Service status'
+                },
+                {
+                    'name': 'Check Neighbors reachability'
+                },
+                {
+                    'name': 'Check grub parameter'
+                },
+                {
+                    'name': 'NUMA Status'
+                },
+                {
+                    'name': 'Number of running VM (KVM)'
+                },
+                {
+                    'name': 'Number of virtual interfaces (VIF)'
+                },
+                {
+                    'name': 'Check SRIOV status'
+                },
+                {
+                    'name': 'Run Command on host'
+                },
 
             ],
-            'validate': lambda answer: 'You must choose at least one topping.' \
+            'validate': lambda answer: 'You must choose at least one item.' \
             if len(answer) == 0 else True
         }
     ]

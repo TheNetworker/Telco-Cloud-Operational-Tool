@@ -26,8 +26,9 @@ List of features:
     - Show Images List.
     - Check OpenStack Host Aggregate (HA).
     - Check Baremetal List and status.
+
 - OS
-    - Display the running and active real-time processes.
+    - CPU Status (Display the running and active real-time processes).
     - NUMA Status.
     - Number of running VM
     - Number of virtual interfaces (VIF)
