@@ -44,6 +44,10 @@ List of features:
     - Check grub parameter
     - Run Command on host.
 
+Screenshot:
+ (Tool view list) 
+![alt text](https://github.com/mubarak-elrayah/Telco-Cloud-Operational-Tool/blob/master/docs/Screen%20Shot%202020-02-16%20at%204.10.34%20PM.png)
+
 Reference Link:
 
 * PyInquirer: https://pypi.org/project/PyInquirer/
