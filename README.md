@@ -46,7 +46,7 @@ List of features:
 
 Screenshot:
  (Tool view list) 
-![alt text](https://github.com/mubarak-elrayah/Telco-Cloud-Operational-Tool/blob/master/docs/Screen%20Shot%202020-02-16%20at%204.10.34%20PM.png)
+![alt text](https://github.com/mubarak-elrayah/Telco-Cloud-Operational-Tool/blob/master/docs/Screen%20Shot%202020-02-10%20at%2011.44.33%20AM.png)
 
 Reference Link:
 
