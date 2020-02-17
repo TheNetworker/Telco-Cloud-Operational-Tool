@@ -23,31 +23,13 @@ def questionsList():
     questions = [
         {
             'type': 'input',
-            'name': 'host',
-            'message': emoji.emojize('IP Address (add multiple devices by using comma seperator): '),
-
+            'name': 'RC',
+            'message': emoji.emojize('OpenStack RC path file: '),
         },
-        # {
-        #     'type': 'input',
-        #     'name': 'inventory',
-        #     'message': emoji.emojize('Stack Profile (in ) :open_file_folder: ?'),
-
-        # },
-        # {
-        #     'type': 'list',
-        #     'name': 'tasks',
-        #     'message': 'Choose your Task',
-        #     'choices': [
-        #         "System",
-        #         "Cloud \'OpenStack\'",
-        #         "Storage",
-        #         "Network"
-        #     ]
-        # },
         {
-            'type': 'checkbox',
+            'type': 'list',
             'message': 'select item',
-            'name': 'actions',
+            'name': 'tasks',
             'choices': [
                 Separator('<<>><<>> Cloud Menu (OpenStack) <<>><<>>'),
                 {
@@ -94,6 +76,9 @@ def questionsList():
                 },
                 {
                     'name': 'Show Images List'
+                },
+                {
+                    'name': 'Not Listed'
                 },
                 Separator('<<>><<>> SOSREPORT (RHEL/Centos)<<>><<>>'),
                 {
@@ -148,7 +133,7 @@ def questionsList():
                     'name': 'Check SRIOV status'
                 },
                 {
-                    'name': 'Run Command on host'
+                    'name': 'Other Not Listed'
                 },
 
             ],
@@ -162,6 +147,26 @@ def questionsList():
 def healthCheck():
     print('run ansible health check ....')
 
+def runCommand(cmd):
+    os.system(cmd)
 
-answers = prompt(questionsList(), style=style)
-pprint(answers)
+def selection():
+    answers = prompt(questionsList(), style=style)
+    if answers['tasks'] == 'Not Listed':
+        cmd = input("Type your command here: ")
+        runCommand(cmd)
+    if len(answers['RC']) > 0:
+        cmd = ('source ' + answers['RC'])
+        runCommand(cmd)
+    if len(answers['RC']) == 0:
+        print('Please Insert the RC full path and try again!')
+        #print(answers['RC'])
+
+
+    else:
+        print('The selected Task/Tasks Not available at this time.')
+
+selection()
+
+
+
